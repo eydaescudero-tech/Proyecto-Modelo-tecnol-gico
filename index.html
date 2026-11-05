@@ -10,6 +10,28 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <section class="registration-screen" id="registration-screen" aria-labelledby="registration-title">
+    <div class="registration-card">
+      <span class="eyebrow">Curso comunitario · Panamá</span>
+      <h1 id="registration-title">Antes de comenzar,<br><em>registra tus datos.</em></h1>
+      <p>Identifícate para ingresar al curso y guardar los resultados de tus autoevaluaciones.</p>
+      <form id="registration-form">
+        <label for="numeroCasa">Número de casa</label>
+        <input id="numeroCasa" name="numeroCasa" type="text" inputmode="text" autocomplete="off" maxlength="24" pattern="[A-Za-z0-9-]+" title="Usa letras, números o guiones, sin espacios ni barras." required>
+        <div id="personal-fields">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="given-name" maxlength="60" required>
+          <label for="apellido">Apellido</label>
+          <input id="apellido" name="apellido" type="text" autocomplete="family-name" maxlength="60" required>
+        </div>
+        <button class="btn registration-submit" id="registration-submit" type="submit" disabled>Guardar y entrar</button>
+        <button class="registration-switch" id="registered-login-toggle" type="button" disabled>¿Ya te habías registrado? Ingresa aquí</button>
+        <p id="registration-message" class="registration-message" role="status" aria-live="polite">Conectando con el registro…</p>
+      </form>
+    </div>
+    <div class="registration-art" aria-hidden="true"><span>🌿</span><b>Un cambio comienza<br>en comunidad.</b></div>
+  </section>
+  <div id="app-shell" hidden>
   <header class="topbar" id="topbar">
     <nav class="nav" aria-label="Navegación principal">
       <a class="brand" href="#inicio"><span class="brand-icon">♧</span><span>Raíces <span style="font-weight:450">en acción</span></span></a>
@@ -24,10 +46,12 @@
     </section>
     <section class="section white" id="introduccion" data-page="introduccion" hidden><div class="wrap"><div class="section-head"><span class="eyebrow">01 · Introducción</span><h2>La conciencia ambiental<br>se aprende y se practica.</h2><p>Una iniciativa comunitaria para comprender nuestro impacto y mejorar, paso a paso, la gestión de residuos en Panamá.</p></div><div class="intro-grid"><article class="story"><h3 class="serif">Un cambio que empieza cerca</h3><p>El proyecto nace del interés por conocer la conciencia ambiental en la comunidad Residencial La Colina, en La Chorrera. El curso propone un recorrido de tres meses: uno de aprendizaje y dos de práctica.</p><p>La meta es promover cambios individuales, familiares y comunitarios. Lo que hacemos en casa influye en el entorno y puede inspirar a otras personas.</p><div class="statline"><div class="stat"><b>3 meses</b><span>aprendizaje y práctica</span></div><div class="stat"><b>4 dimensiones</b><span>para pasar del saber al hacer</span></div></div></article></div><div class="pillars"><article class="pillar"><span class="icon">🧠</span><h3>Conocimiento</h3><p>Comprender qué sucede y cómo actuar.</p></article><article class="pillar"><span class="icon">💚</span><h3>Afecto</h3><p>Conectar con la naturaleza y sus cuidados.</p></article><article class="pillar"><span class="icon">🧭</span><h3>Disposición</h3><p>Sentir motivación para hacer un cambio.</p></article><article class="pillar"><span class="icon">🌱</span><h3>Acción</h3><p>Practicar hábitos sostenibles cada día.</p></article></div></div></section>
     <section class="section" id="contenido" data-page="contenido" hidden><div class="wrap"><div class="section-head"><span class="eyebrow">02 · Contenido</span><h2>Un camino en cinco pasos.</h2><p>El documento base presenta cinco módulos. Cada uno desarrolla una dimensión y prepara el siguiente paso.</p></div><div class="contents" id="contents"></div></div></section>
-    <section class="section white" id="modulos" data-page="modulos" hidden><div class="wrap"><div class="module-intro"><div class="section-head" style="margin:0"><span class="eyebrow">03 · Módulos</span><h2>Aprende a tu ritmo.</h2><p>Elige un módulo, mira todos sus videos y luego completa la autoevaluación.</p></div></div><div class="tabs" id="tabs" role="tablist" aria-label="Módulos del curso"></div><div class="mobile-modules" id="mobile-tabs" aria-label="Elegir módulo"></div><article class="module-card" id="module-card" aria-live="polite"></article><div class="actions" style="margin-top:28px"><a class="btn secondary" href="#contenido">Ver el recorrido completo ↑</a></div></div></section>
+    <section class="section white" id="modulos" data-page="modulos" hidden><div class="wrap"><div class="module-intro"><div class="section-head" style="margin:0"><span class="eyebrow">03 · Módulos</span><h2>Aprende a tu ritmo.</h2><p>Elige un módulo, mira todos sus videos y luego completa la autoevaluación.</p></div></div><aside class="house-progress" id="house-progress" aria-live="polite" hidden></aside><div class="tabs" id="tabs" role="tablist" aria-label="Módulos del curso"></div><div class="mobile-modules" id="mobile-tabs" aria-label="Elegir módulo"></div><article class="module-card" id="module-card" aria-live="polite"></article><div class="actions" style="margin-top:28px"><a class="btn secondary" href="#contenido">Ver el recorrido completo ↑</a></div></div></section>
     <section class="section" data-page="inicio"><div class="wrap"><div class="cta"><div><span class="eyebrow" style="color:#d4e2bd">Tu siguiente paso</span><h2>Empieza en tu comunidad.</h2><p>Observa tus hábitos, conversa en casa y elige una acción sencilla para mantener esta semana. El compromiso colectivo comienza con una decisión personal.</p></div><a class="btn" href="#modulos">Volver a los módulos <span>↑</span></a></div></div></section>
   </main>
   <footer class="footer"><div class="wrap footer-inner"><span>Raíces en acción · Formación de la conciencia ambiental</span><span>Gestión de residuos sólidos comunes · Panamá</span></div></footer>
+  </div>
+  <script type="module" src="firebase-client.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
